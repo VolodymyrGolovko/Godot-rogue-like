@@ -1,11 +1,14 @@
 extends Camera2D
 
-@onready var cursor_target := $"../CursorTarget"
 @onready var player := $"../ColorRect"
+@onready var cursor_target := $"../CursorTarget"
+
+const CAMERA_FOLLOW_RATIO = 0.5
 
 func _process(delta):
-	if not cursor_target or not player:
+	if not player or not cursor_target:
 		return
 
-	var mid_position = (player.global_position + cursor_target.global_position) / 2.0
-	position = mid_position
+	var target_position = player.global_position.lerp(cursor_target.global_position, CAMERA_FOLLOW_RATIO)
+
+	position = position.lerp(target_position, 0.1)

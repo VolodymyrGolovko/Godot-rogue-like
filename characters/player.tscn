@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb0tvnuel3glw"]
+[gd_scene load_steps=3 format=3 uid="uid://bb0tvnuel3glw"]
 
 [ext_resource type="Script" uid="uid://clo7k2bo2gggn" path="res://characters/player.gd" id="1_dnjla"]
-[ext_resource type="Script" uid="uid://bowbbjv5qci5p" path="res://characters/camera_2d.gd" id="2_3eadt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p3mc"]
 size = Vector2(40, 40)
@@ -25,7 +24,3 @@ position = Vector2(0, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-script = ExtResource("2_3eadt")
-
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.12
