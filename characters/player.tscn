@@ -24,3 +24,17 @@ position = Vector2(0, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+editor_draw_screen = false
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="DashMeter" type="ProgressBar" parent="."]
+self_modulate = Color(0, 0.454902, 1, 1)
+offset_left = 29.0
+offset_top = -38.0
+offset_right = 41.0
+offset_bottom = 21.0
+value = 50.0
+fill_mode = 3
+show_percentage = false
