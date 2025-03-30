@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 @export var move_speed = 450
-@export var dash_speed = 1200
-@export var dash_duration = 0.2
+@export var dash_speed = 1000
+@export var dash_duration = 0.4
 
 @onready var cursor_target := $CursorTarget
 @onready var camera := $Camera2D
 @onready var dash_timer := $DashTimer
-@onready var dash_meter_bar := $DashMeter
+@onready var dash_meter_bar := %DashMeter
 
 const MAX_CURSOR_DISTANCE = 600
 const CAMERA_SHIFT_RATIO = 0.5
@@ -41,8 +41,10 @@ func _physics_process(delta):
 		dash(direction)
 
 	if not can_dash:
+		%DashMeter.visible = true
 		dash_meter_bar.value = dash_timer.wait_time - dash_timer.time_left
 	else:
+		%DashMeter.visible = false
 		dash_meter_bar.value = dash_meter_bar.max_value
 
 func dash(direction: Vector2):
@@ -59,8 +61,10 @@ func _on_dash_timer_timeout():
 func _process(delta):
 	var world_mouse_position = get_global_mouse_position()
 	var desired_position = global_position * 0.33 + world_mouse_position * 0.66
+	
 	if global_position.distance_to(desired_position) > MAX_CURSOR_DISTANCE:
 		desired_position = global_position + (desired_position - global_position).normalized() * MAX_CURSOR_DISTANCE
+	
 	cursor_target.global_position = desired_position
 	var camera_offset = (cursor_target.global_position - global_position) * CAMERA_SHIFT_RATIO
 	camera.position = camera_offset
