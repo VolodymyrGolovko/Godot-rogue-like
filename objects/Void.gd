@@ -1,14 +1,11 @@
 extends GameObject
 
+class_name Void
+
 func _ready():
-	is_walkable = true
-	passable_for_grounded = false
+	is_walkable = false 
+	passable_for_grounded = true
 	passable_for_aerial = true
 	is_moveable = false
 	can_be_destroyed = false
 	affectable = false
-
-
-func reaction_to_grounded(obj: Object):
-	#описати зникання об'єкту, падіння в пустоту (ахахах, Чайльд)
-	pass

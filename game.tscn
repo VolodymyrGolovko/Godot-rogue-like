@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6dc2lxdrutqm"]
+[gd_scene load_steps=3 format=3 uid="uid://6dc2lxdrutqm"]
 
 [ext_resource type="PackedScene" uid="uid://bb0tvnuel3glw" path="res://characters/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://boj11dpi27e5d" path="res://objects/LowObstacle.tscn" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,6 @@ offset_bottom = 650.0
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(569, 326)
+
+[node name="LowObstacle" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(813, 330)

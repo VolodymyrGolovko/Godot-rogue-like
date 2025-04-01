@@ -1,5 +1,7 @@
 extends GameObject
 
+class_name Wall
+
 func _ready():
 	is_walkable = false
 	passable_for_grounded = false

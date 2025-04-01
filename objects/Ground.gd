@@ -1,5 +1,7 @@
 extends GameObject
 
+class_name Ground
+
 func _ready():
 	is_walkable = true
 	passable_for_grounded = true

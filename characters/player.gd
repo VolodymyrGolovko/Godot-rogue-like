@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var move_speed = 450
 @export var dash_speed = 1000
 @export var dash_duration = 0.4
+@export var push_force: float = 2
 
 @onready var cursor_target := $CursorTarget
 @onready var camera := $Camera2D
@@ -36,6 +37,16 @@ func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * move_speed
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		
+		var collision = get_slide_collision(i)
+		var obj = collision.get_collider()
+		
+		if obj is GameObject and obj.is_moveable:
+			var push_direction = collision.get_normal() * -1
+			var force = push_direction * move_speed  * push_force * delta
+			obj.apply_force(force)
 
 	if Input.is_action_just_pressed("dash") and direction != Vector2.ZERO and can_dash:
 		dash(direction)

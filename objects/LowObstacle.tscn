@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://boj11dpi27e5d"]
+
+[ext_resource type="Script" uid="uid://c7ihav6tye1gn" path="res://objects/LowObstacle.gd" id="1_74kd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74kd7"]
+size = Vector2(80, 80)
+
+[node name="LowObstacle" type="StaticBody2D"]
+disable_mode = 2
+script = ExtResource("1_74kd7")
+metadata/_custom_type_script = "uid://c7ihav6tye1gn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 41.0
+offset_bottom = 40.0
+color = Color(1, 0.0823529, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_74kd7")
