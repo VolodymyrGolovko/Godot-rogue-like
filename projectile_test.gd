@@ -1,30 +1,17 @@
-extends Area2D
+extends BaseProjectile
 
 class_name projectile_test
 
-var travelled_distance = 0
-var obstacle_damage = 1
-
-func _physics_process(delta):
-	const SPEED = 2000
-	const RENGE = 4000
+func _ready():
+	can_collide_allied = false
+	can_collide_hostile = true
+	is_grounded = false
+	is_breakable = true
+	can_bounce = false
+	can_pierce = false
 	
-	var direction = Vector2.RIGHT.rotated(rotation)
-	position += direction * SPEED * delta
+	character_damage = 10
+	obstacle_damage = 1
 	
-	travelled_distance += SPEED * delta
-	
-	
-	if travelled_distance > RENGE:
-		queue_free()
-
-func _on_body_entered(body: Node2D):
-	print("enter")
-	if body is GameObject:
-		if not body.passable_for_grounded:
-			body.collide_grounded(self)
-	pass
-
-func destroy():
-	queue_free()
-	pass
+	SPEED = 2000
+	RANGE = 4000

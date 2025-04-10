@@ -38,8 +38,8 @@ func collide_aerial(obj: Object):
 	reaction_to_aerial(obj)
 
 func take_damage(amount: int):
-	print(current_health)
-	print(amount)
+#	print(current_health)
+#	print(amount)
 	if can_be_destroyed:
 		current_health -= amount
 		if current_health <= 0:
@@ -52,13 +52,13 @@ func apply_effect(effect_name: String, duration: float):
 
 # Conditional functions
 func reaction_to_grounded(obj: Object):
-	if obj is projectile_test:
-		obj.destroy()
+	if obj is BaseProjectile:
+		obj.obstacle_collision_reaction()
 	pass
 
 func reaction_to_aerial(obj: Object):
-	if obj is projectile_test:
-		obj.destroy()
+	if obj is BaseProjectile:
+		obj.obstacle_collision_reaction()
 	pass
 
 func destroy():

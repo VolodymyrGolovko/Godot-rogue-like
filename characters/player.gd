@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var move_speed = 450
 @export var dash_speed = 1000
 @export var dash_duration = 0.4
@@ -79,3 +81,11 @@ func _process(delta):
 	cursor_target.global_position = desired_position
 	var camera_offset = (cursor_target.global_position - global_position) * CAMERA_SHIFT_RATIO
 	camera.position = camera_offset
+
+func projectile_collision_reaction(obj: BaseProjectile): # тут впихнути перевірку на вразливість, перекат
+	take_damage(obj.character_damage)
+	obj.character_collision_reaction()
+	pass
+
+func take_damage(amount: int): #заповнити функцію
+	pass
