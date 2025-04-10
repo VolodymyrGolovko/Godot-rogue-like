@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://nfm8dnhcqgaa"]
+
+[ext_resource type="Script" uid="uid://co3c4288rumj" path="res://objects/HighObstacle.gd" id="1_vhfnp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47mo5"]
+size = Vector2(80, 80)
+
+[node name="HighObstacle" type="StaticBody2D"]
+script = ExtResource("1_vhfnp")
+metadata/_custom_type_script = "uid://co3c4288rumj"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 41.0
+offset_bottom = 40.0
+color = Color(0, 1, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_47mo5")

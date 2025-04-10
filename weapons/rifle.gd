@@ -3,7 +3,7 @@ extends Area2D
 @onready var sprite = %Rifle
 @onready var shooting_speed = %ShootingSpeed
 @onready var reload_timer = %ReloadTimer
-@onready var reload_bar = get_node("/root/Game/Player/ReloadBar")
+@onready var reload_bar = get_parent().get_node("ReloadBar")
 
 const BULLET = preload("res://weapons/projectile_test.tscn")
 

@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var max_health = 200
+@export var current_health = 200
 @export var move_speed = 450
 @export var dash_speed = 1000
 @export var dash_duration = 0.4
@@ -71,6 +73,13 @@ func dash(direction: Vector2):
 func _on_dash_timer_timeout():
 	can_dash = true
 
+func take_damage(amount: int):
+	current_health -= amount
+	if current_health <= 0:
+		die()
+
+
+
 func _process(delta):
 	var world_mouse_position = get_global_mouse_position()
 	var desired_position = global_position * 0.33 + world_mouse_position * 0.66
@@ -87,5 +96,5 @@ func projectile_collision_reaction(obj: BaseProjectile): # тут впихнут
 	obj.character_collision_reaction()
 	pass
 
-func take_damage(amount: int): #заповнити функцію
-	pass
+func die():
+	queue_free()

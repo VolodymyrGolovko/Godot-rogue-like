@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://6dc2lxdrutqm"]
+[gd_scene load_steps=5 format=3 uid="uid://6dc2lxdrutqm"]
 
 [ext_resource type="PackedScene" uid="uid://bb0tvnuel3glw" path="res://characters/player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://boj11dpi27e5d" path="res://objects/LowObstacle.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://ddgoma0uqn1xp" path="res://objects/Wall.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://nfm8dnhcqgaa" path="res://objects/HighObstacle.tscn" id="4_7jktm"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,7 +12,19 @@ offset_right = 1153.0
 offset_bottom = 650.0
 
 [node name="Player" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(569, 326)
+position = Vector2(430, 331)
 
 [node name="LowObstacle" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(813, 330)
+position = Vector2(842, 236)
+
+[node name="Wall" parent="." instance=ExtResource("3_fc0e3")]
+position = Vector2(640, 234)
+
+[node name="Wall2" parent="." instance=ExtResource("3_fc0e3")]
+position = Vector2(640, 314)
+
+[node name="Wall3" parent="." instance=ExtResource("3_fc0e3")]
+position = Vector2(640, 394)
+
+[node name="HighObstacle" parent="." instance=ExtResource("4_7jktm")]
+position = Vector2(843, 408)
