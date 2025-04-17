@@ -52,13 +52,13 @@ func apply_effect(effect_name: String, duration: float):
 
 # Conditional functions
 func reaction_to_grounded(obj: Object):
-	if obj is projectile_test:
-		obj.destroy()
+	if obj is BaseProjectile:
+		obj.obstacle_collision_reaction()
 	pass
 
 func reaction_to_aerial(obj: Object):
-	if obj is projectile_test:
-		obj.destroy()
+	if obj is BaseProjectile:
+		obj.obstacle_collision_reaction()
 	pass
 
 func destroy():
